@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <title>Personal Portfolio</title>
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#works">My Works</a>
+            <a href="#services">My Services</a>
+            <a href="#contact">Contact</a>
+            <a href="#survey">Survey</a>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <!-- Large scrolling text -->
+        <div class="name">Kenjo</div>
+        <div class="scrolling-text">
+            <div class="scroll-text">This is Kenjo</div>
+            <div class="scroll-text">This is Kenjo</div>
+            <div class="scroll-text">This is Kenjo</div>
+        </div>
+        <!-- Centered Image -->
+        <div class="photo-container">
+            <img src="main_img_hd.png" alt="Kenjo" class="main-photo">
+        </div>
+    </section>
+    
+    <section id="about">
+        <div id="get-to-know-me">Get to Know Me</div>
+        <p class="about-text">
+            Hi, I am <span class="full-name">Charles Kent Jorel M. Condez</span>, but people just call me <span class="nickname">Kenjo</span>. I am passionate about creating captivating designs that leave a lasting impression.
+        </p>
+    </section>
+    
+    <section id="my-work">
+        <div class="section-title">My Work</div>
+    
+    
+        <div class="carousel-container">
+            <div class="carousel">
+                <a href="http://localhost/WebsiteniKenjoXD/index.php" class="carousel-image" target="_blank">
+                    <img src="work_img1.png" alt="Project 1 Image">
+                </a>
+                <a href="http://localhost/PortfolioniKenjoXD/index.php" class="carousel-image" target="_blank">
+                    <img src="work_img2.png" alt="Project 2 Image">
+                </a>
+                <!-- Add any more projects here -->
+            </div>
+        </div>
+    
+        <a href="https://drive.google.com/file/d/1btoxeXT9X7q5YWogDCKkGpw3G_bqD01M/view?usp=drive_link" id="view-resume" target="_blank">View My Resume</a>
+    </section>
+    
+    
+    <section id="services">
+        <div class="services-container">
+          <h2 class="services-title">My Services</h2>
+          <div class="services-list">
+            <div class="service-item">
+              <img src="services1.png" alt="Web Design" class="service-image">
+              <h3>Web Design</h3>
+              <p>Creating visually appealing and user-friendly websites that engage your audience.</p>
+            </div>
+            <div class="service-item">
+              <img src="services2.png" alt="Graphic Design" class="service-image">
+              <h3>Graphic Design</h3>
+              <p>Designing stunning graphics for your brand, including logos, posters, and marketing materials.</p>
+            </div>
+            <div class="service-item">
+              <img src="services3.png" alt="UI/UX Development" class="service-image">
+              <h3>UI/UX Development</h3>
+              <p>Improving user experiences with intuitive and clean designs for apps and websites.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    
+    
+      <section id="contact">
+        <!-- Static "LET'S CONNECT" Heading -->
+        <div class="connect-title">LET'S CONNECT</div>
+    
+        <!-- Flipable Contact Cards -->
+        <div class="contact-cards">
+            <!-- Facebook Card -->
+            <div class="contact-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <a href="https://www.facebook.com/Kenjocon0596" target="_blank">
+                            <img src="facebook2.jpg" alt="Facebook Icon">
+                        </a>
+                    </div>
+                    <div class="card-back">
+                        <a href="https://www.facebook.com/Kenjocon0596" target="_blank">
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Instagram Card -->
+            <div class="contact-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <a href="https://www.instagram.com/ken._.teu/" target="_blank">
+                            <img src="instagram.jpg" alt="Instagram Icon">
+                        </a>
+                    </div>
+                    <div class="card-back">
+                        <a href="https://www.instagram.com/ken._.teu/" target="_blank">
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- GitHub Card -->
+            <div class="contact-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <a href="https://github.com/meepmorp-blip" target="_blank">
+                            <img src="github1.jpg" alt="GitHub Icon">
+                        </a>
+                    </div>
+                    <div class="card-back">
+                        <a href="https://github.com/meepmorp-blip" target="_blank">
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section> -->
+
+    <section id="survey">
+        <h2>Survey of Satisfaction</h2>
+        <form>
+            <label for="satisfaction">How satisfied are you with my portfolio?</label>
+            <select id="satisfaction" name="satisfaction" required>
+                <option value="excellent">Excellent</option>
+                <option value="good">Good</option>
+                <option value="average">Average</option>
+                <option value="poor">Poor</option>
+            </select>
+
+            <label for="feedback">Additional Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="5"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    <footer>
+        <p>&copy; 2024 Charles Kent Jorel M. Condez. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

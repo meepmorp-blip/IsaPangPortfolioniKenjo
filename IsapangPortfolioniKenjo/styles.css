@@ -1,0 +1,1193 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5efe7;
+    color: #213555;
+}
+
+/* Make sure the toggle button stays fixed at the top-right corner */
+.menu-toggle {
+    position: fixed; /* Keeps the button fixed in place */
+    top: 1rem; /* Distance from the top */
+    right: 2rem; /* Distance from the right */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1100; /* Ensure it stays on top of other content */
+}
+
+/* Styling for each line of the hamburger icon */
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background: #213555;
+    transition: background-color 0.3s ease;
+}
+
+/* Navigation Menu as a smaller sidebar */
+nav {
+    position: fixed; /* Fixed on the screen */
+    top: calc(3rem + 10px); /* Aligns slightly below the menu toggle icon */
+    right: 2rem; /* Sticks to the right */
+    height: auto; /* Adjust height to fit content */
+    width: 200px; /* Smaller width */
+    background: #3e5879; /* Dark background color */
+    border-radius: 15px; /* Rounded corners for the menu */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow for a lifted effect */
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0; /* Remove extra spacing */
+    z-index: 999; /* Ensure it stays on top */
+    overflow: hidden; /* Prevent content overflow */
+    transition: transform 0.3s ease;
+    border: 2px solid #d8c4b6; /* Add a border around the menu */
+}
+
+/* Align menu at the bottom of the menu toggle icon */
+.menu-toggle {
+    position: fixed;
+    top: 1rem; /* Distance from the top */
+    right: 2rem; /* Distance from the right */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1000; /* Stay on top of other content */
+    background: #3e5879; /* Background color for toggle */
+    border-radius: 8px; /* Rounded square corners */
+    padding: 0.5rem; /* Add padding */
+}
+
+/* Styling for the toggle icon lines */
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background: #f5efe7;
+    transition: background-color 0.3s ease;
+}
+
+/* Navigation Links Styling */
+nav a {
+    color: #f5efe7; /* Light text color */
+    text-decoration: none;
+    font-size: 1rem; /* Adjust font size */
+    font-family: 'Playfair Display', serif; /* Fancy font */
+    padding: 0.75rem 1rem; /* Add padding for spacing */
+    width: 100%; /* Make links take full width */
+    text-align: center; /* Center the text */
+    border-bottom: 1px solid #d8c4b6; /* Bottom border */
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Remove border for the last link */
+nav a:last-child {
+    border-bottom: none;
+}
+
+/* Hover Effect for Links */
+nav a:hover {
+    background: #d8c4b6; /* Light background color on hover */
+    color: #3e5879; /* Dark text color */
+    cursor: pointer;
+}
+
+/* When the nav has the 'active' class, show it */
+nav.active {
+    display: flex;
+}
+
+
+/* Ensure body and html have 100% height and no overflow */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Optional: Prevent scrolling on the body when the menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Name Styling */
+.name {
+    position: absolute;
+    top: 1rem; /* Align it with the top of the page */
+    left: 1rem; /* Align it with the left side */
+    font-family: 'Playfair Display', serif; /* Fancier font */
+    font-size: 2rem; /* Adjust font size as needed */
+    color: #3e5879; /* Text color (you can change this) */
+    z-index: 1001; /* Ensure it stays above other content */
+}
+
+/* Ensure the intro section stays at the top */
+#intro {
+    position: sticky; /* Stays until the next section */
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-color: #f5efe7; /* Background color */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    padding-top: 2rem; /* Add slight padding to move everything up */
+}
+/* When scrolled to "About Me", hide the "Intro" section */
+#intro.hidden {
+    opacity: 0; /* Fade out intro */
+    visibility: hidden; /* Hide intro visually */
+}
+
+/* Photo Styling - Bigger Image */
+.photo-container {
+    position: absolute;
+    top: -30%; /* Move photo higher up */
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 10; /* Ensure the photo stays above text */
+}
+
+.main-photo {
+    width: 100%; /* Make the photo almost full width */
+    max-width: 1000px; /* Control maximum size */
+    height: auto;
+    border-radius: 15px; /* Optional rounded corners */
+}
+
+/* Scrolling Text */
+.scrolling-text {
+    position: absolute;
+    top: 10%; /* Move text upward */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    color: #1e90ff; /* Light text color */
+    font-family: 'Playfair Display', serif; /* Fancier font */
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+/* Scrolling Effect */
+.scroll-text {
+    white-space: nowrap;
+    font-size: 12vw; /* Larger font size */
+    line-height: 1.2;
+    animation: scrollText 8s linear infinite;
+}
+
+/* Alternate Directions */
+.scroll-text:nth-child(1) {
+    animation: scrollText 8s linear infinite;
+}
+.scroll-text:nth-child(2) {
+    animation: scrollTextReverse 8s linear infinite;
+    margin-top: 1rem;
+}
+.scroll-text:nth-child(3) {
+    animation: scrollText 8s linear infinite;
+    margin-top: 1rem;
+}
+
+/* Keyframes for scrolling */
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scrollTextReverse {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full-screen height for each section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #f5efe7;
+    font-family: Arial, sans-serif;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+
+#about {
+    background: #3e5879; /* About section color */
+    z-index: 2; /* Higher z-index for layering */
+    /* Remove transform and animation temporarily */
+    /* transform: translateY(-100%); */
+    /* animation: slideIn 1.5s ease-in-out forwards; */
+    height: 100vh; /* Ensure full section visibility */
+}
+/* General Section Styling */
+#about {
+    position: relative;
+    height: 100vh; /* Full-screen height */
+    background-color: #213555;
+    color: #f5efe7;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Get to Know Me Text */
+#get-to-know-me {
+    position: absolute;
+    font-size: 7rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #f5efe7;
+    text-transform: uppercase;
+    width: 100%;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 1;
+}
+
+/* Paragraph Text */
+.about-text {
+    font-size: 2.2rem;
+    max-width: 700px;
+    line-height: 2.5;
+    opacity: 0;
+    transform: translateY(50px);
+    position: absolute;
+    top: 0%;
+    left: -100%;
+    width: 90%;
+    z-index: 2;
+    text-align: left;
+    word-spacing: 5px;
+    padding-right: 10%;
+    transition: opacity 1s ease, transform 1s ease, left 1s ease;
+}
+
+/* Add this class to trigger fade-in and sliding effect */
+.about-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+    left: 5%; /* Slide into position */
+}
+
+/* Fade In & Out for the Get to Know Me Text */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: scale(1.2) translateY(-20px);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 0.1;
+        transform: scale(2);
+    }
+}
+
+
+/* Slide In for Paragraph Text */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade Out Effect for Scroll */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Styling for the paragraph */
+#about p {
+    font-family: 'Copperplate', 'Copperplate Gothic', 'Times New Roman', serif;
+    font-size: 2.2rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #f5efe7;
+    position: relative;
+    top: -20px;
+    left: -10%;
+    width: 90%;
+    line-height: 2.5;
+    z-index: 2;
+    text-align: left;
+    word-spacing: 5px;
+    padding-right: 10%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease, left 1s ease;
+}
+
+/* Add this class to trigger fade in for paragraph */
+.about-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+    left: 5%;
+}
+
+/* Styling for specific parts of the name with a light blue gradient background animation */
+.full-name, .nickname {
+    font-weight: bold;
+    color: transparent; /* Make the text color transparent so the gradient shows through */
+    background: linear-gradient(45deg, #a1c4fd, #c2e9fb, #b0e0e6, #87cefa); /* Light blue gradient colors */
+    background-size: 400% 400%; /* Make the gradient large to allow smooth animation */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text; /* For non-Webkit browsers */
+    animation: dramaticGradientBG 4s ease infinite; /* Apply gradient animation */
+    text-decoration: none; /* Ensure no underlining */
+}
+
+/* Gradient animation */
+@keyframes dramaticGradientBG {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Shadow effect for "Get to Know Me" */
+#get-to-know-me {
+    font-size: 7rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #f5efe7;
+    text-transform: uppercase;
+    width: 100%;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 1;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+/* Adjust the spacing of the paragraph text */
+.about-text {
+    margin-top: 30px; /* Move the sentence lower */
+    line-height: 1.8; /* Adjust line height for better spacing between lines */
+    letter-spacing: 1px; /* Add slight spacing between letters */
+}
+
+
+
+/* My Works Section */
+#my-work {
+    background: #d8c4b6; /* Light background for contrast */
+    z-index: 3;
+}
+
+/* My Work Section Styling */
+#my-work {
+    background-color: #212121;
+    color: #f5efe7;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Section Title with Changing Blue Colors */
+.section-title {
+    font-size: 6rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #1E90FF, #00BFFF, #1E90FF, #4682B4);
+    background-size: 400%;
+    color: transparent;
+    -webkit-background-clip: text; /* Clip the background to text */
+    animation: color-change 5s ease infinite; /* Animation to change colors */
+}
+
+
+
+/* Animation for changing blue colors */
+@keyframes color-change {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+/* Carousel Container */
+.carousel-container {
+    width: 100%;
+    overflow: hidden; /* Hide images that are outside of the container */
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Carousel Track (wrapper for images) */
+.carousel {
+    display: flex;
+    width: 300%; /* Set width to accommodate all three images */
+    animation: scroll-left 15s linear infinite; /* Adjust animation time for slower scroll */
+}
+
+/* Each Image inside the carousel */
+.carousel-image {
+    width: calc(33.33% - 10px); /* Ensure each image takes up 1/3 of the container, minus a small gap */
+    height: 400px; /* Fixed height for uniform size */
+    flex-shrink: 0; /* Prevent images from shrinking */
+    margin-right: 10px; /* Small gap between the images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure images are contained within the border */
+    border-radius: 20px; /* Rounded corners */
+}
+
+/* Ensure images maintain aspect ratio and fit within container */
+.carousel-image img {
+    width: 100%; /* Make image fill the container */
+    height: 100%; /* Make image take the full height of the container */
+    object-fit: cover; /* Ensure the full image is visible and cover the space */
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0); /* Start from the first image */
+    }
+    33.33% {
+        transform: translateX(-33.33%); /* Move to the second image */
+    }
+    66.66% {
+        transform: translateX(-66.66%); /* Move to the third image */
+    }
+    100% {
+        transform: translateX(0); /* Loop back to the first image */
+    }
+}
+
+/* Optional: Style for anchor (link) elements */
+.carousel a {
+    display: block;
+    width: 100%;
+    text-decoration: none; /* Remove underline from links */
+}
+
+
+/* Resume Button Styling */
+#view-resume {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    background-color: #f5efe7;
+    color: #212121;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#view-resume:hover {
+    background-color: #3c9dde;
+    color: white;
+}
+
+
+
+/* My Services Section */
+#services {
+    background: #f5efe7; /* White-ish background */
+    color: #213555; /* Dark text for contrast */
+    z-index: 4;
+}
+
+/* General Styling */
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5efe7;
+    color: #213555;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1100; /* Ensure it stays on top */
+    background: #3e5879; /* Background color */
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background: #f5efe7;
+    transition: background-color 0.3s ease;
+}
+
+/* Navigation Menu */
+nav {
+    position: fixed;
+    top: calc(3rem + 10px);
+    right: 2rem;
+    height: auto;
+    width: 200px;
+    background: #3e5879;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    z-index: 999;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 2px solid #d8c4b6;
+}
+
+nav.active {
+    display: flex;
+}
+
+nav a {
+    color: #f5efe7;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Playfair Display', serif;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #d8c4b6;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav a:last-child {
+    border-bottom: none;
+}
+
+nav a:hover {
+    background: #d8c4b6;
+    color: #3e5879;
+    cursor: pointer;
+}
+
+/* Prevent scrolling when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Name Styling */
+.name {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #3e5879;
+    z-index: 1001; /* Ensure it stays above other content */
+}
+
+/* Section Styling */
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full-screen height for each section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #f5efe7;
+}
+
+/* Intro Section */
+#intro {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    background-color: #f5efe7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+#intro.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Photo Container */
+.photo-container {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 10;
+}
+
+.main-photo {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Scrolling Text */
+.scrolling-text {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    color: #1e90ff;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.scroll-text {
+    white-space: nowrap;
+    font-size: 12vw;
+    line-height: 1.2;
+    animation: scrollText 8s linear infinite;
+}
+
+.scroll-text:nth-child(2) {
+    animation: scrollTextReverse 8s linear infinite;
+    margin-top: 1rem;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes scrollTextReverse {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* About Section */
+#about {
+    position: relative;
+    height: 100vh;
+    background-color: #213555;
+    color: #f5efe7;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#get-to-know-me {
+    font-size: 7rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #f5efe7;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.7);
+    width: 100%;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 1;
+}
+
+.about-text {
+    font-size: 2.2rem;
+    max-width: 700px;
+    line-height: 2.5;
+    opacity: 0;
+    transform: translateY(50px);
+    position: absolute;
+    top: 0%;
+    left: -100%;
+    width: 90%;
+    text-align: left;
+    word-spacing: 5px;
+    padding-right: 10%;
+    transition: opacity 1s ease, transform 1s ease, left 1s ease;
+}
+
+.about-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+    left: 5%;
+}
+
+/* Animations */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(1.2) translateY(-20px); }
+    30% { opacity: 1; transform: scale(1) translateY(0); }
+    100% { opacity: 0.1; transform: scale(2); }
+}
+
+@keyframes dramaticGradientBG {
+    0%, 100% { background-position: 0% 0%; }
+    25% { background-position: 50% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 50% 0%; }
+}
+
+/* Initial State - Hidden */
+.service-item {
+    opacity: 0;
+    transform: translateY(50px); /* Start below the viewport */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Visible State - Faded In */
+.service-item.visible {
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+}
+
+/* Container Animation */
+.services-container {
+    opacity: 0;
+    transform: translateY(50px); /* Start below viewport */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.services-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.services-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    padding: 10px 20px; /* Add padding for space inside the border */
+    border: 2px solid #213555; /* Border color */
+    border-radius: 30px; /* Creates an oblong/rounded border */
+    display: inline-block; /* Makes the border wrap around the text */
+}
+
+/* Services list items */
+.services-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    flex: 1 1 300px;
+    text-align: center; /* Center the content */
+    max-width: 350px;
+}
+
+/* Service images */
+.service-image {
+    width: 100%; /* Ensure images scale properly */
+    max-width: 250px; /* Limit the maximum width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space between the image and title */
+}
+
+/* Service heading styles (titles below images) */
+.service-item h3 {
+    padding: 10px 20px; /* Ensure consistent padding with the title */
+    border: 2px solid #213555; /* Border color */
+    border-radius: 30px; /* Creates the oblong shape */
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.service-icon {
+    width: 50px;
+    margin-bottom: 15px;
+    animation: bounce 1s ease-in-out infinite; /* Add bounce animation */
+    will-change: transform; /* Optimizes performance */
+}
+
+
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.learn-more {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+    color: #ff7a00; /* Accent color */
+}
+
+
+/* Contact Section */
+#contact {
+    background: #213555; /* Keep the dark theme */
+    color: #f5efe7; /* Light text for contrast */
+    padding: 50px 10%; /* Add padding on sides and top */
+    width: 100%; /* Make the section span the full width */
+    height: auto; /* Adjust height to fit content */
+    display: flex; /* Use flex for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content horizontally */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    z-index: 5;
+}
+
+/* Contact Section Styling */
+#contact {
+    background-color: #212121;
+    color: #f5efe7;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+}
+
+.connect-title {
+    font-size: 8rem;
+    font-family: 'Playfair Display', serif;
+    color: #f5efe7;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #f5efe7, 0 0 20px #f5efe7, 0 0 30px #f5efe7; /* Static glow effect */
+}
+
+/* Contact Cards Container */
+.contact-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Individual Card Styling */
+.contact-card {
+    width: 150px;
+    height: 150px;
+    perspective: 1000px; /* Enable 3D effect */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.contact-card:hover .card-inner {
+    transform: rotateY(180deg); /* Flip the card on hover */
+}
+
+/* Front and Back Faces */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid #f5efe7;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Front Face Styling */
+.card-front {
+    background-color: #1e293b; /* Dark blue background */
+}
+
+/* General styling for card-front images */
+.card-front img {
+    width: 95%; /* Nearly fill the card */
+    height: 95%; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire icon is visible without cropping */
+    margin: auto; /* Center the image within the card */
+    display: block; /* Ensure proper layout within the container */
+    border-radius: 8px; /* Optional: adds slight rounding for aesthetic purposes */
+}
+
+
+/* Back Face Styling */
+.card-back {
+    background-color: #f5efe7; /* Light background */
+    color: #1e293b; /* Dark text */
+    transform: rotateY(180deg);
+    border-radius: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-card {
+        width: 120px;
+        height: 120px;
+    }
+
+    .connect-title {
+        font-size: 3rem;
+    }
+}
+
+
+/* Form Styling (Contact Section) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+    margin: 0 auto;
+}
+input, textarea, button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+button {
+    background-color: #3e5879;
+    color: #f5efe7;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #213555;
+}
+#survey {
+    position: relative; /* Required for z-index to take effect */
+    z-index: 7; /* Set a high z-index to ensure it is above other elements */
+    background: #F5EFE7; /* Match the dark theme */
+    color: #213555; /* Light text for contrast */
+    padding: 50px 10%; /* Add spacing on all sides */
+    width: 100%; /* Full width */
+    text-align: center; /* Center-align text */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+
+/* Survey Title Styling */
+#survey h2 {
+    font-family: 'Playfair Display', serif; /* Match the title font style */
+    font-size: 2.5rem; /* Large, bold title */
+    margin: 0; /* Remove margin */
+    text-align: center; /* Center text within its container */
+    width: 30%; /* Restrict title width */
+    display: flex; /* Flex layout for centering */
+    align-items: center; /* Center vertically */
+    justify-content: flex-start; /* Align title to the left */
+    height: 100%; /* Ensure it fills the container */
+}
+
+/* Survey Form Styling */
+#survey form {
+    flex: 1; /* Form takes up remaining space */
+    max-width: 800px; /* Center the form and limit its width */
+    background-color: #213555; /* Dark background for the form */
+    padding: 30px; /* Add padding inside the form */
+    border-radius: 10px; /* Smooth corners for the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    gap: 1.5rem; /* Add space between form elements */
+    transform: translateY(-20px); /* Move form slightly up */
+}
+
+/* Form Labels */
+#survey label {
+    font-family: 'Montserrat', sans-serif; /* Consistent label font */
+    font-size: 1.2rem; /* Larger label text */
+    text-align: left; /* Align labels to the left */
+    color: white;
+    display: block; /* Ensure labels occupy full width */
+}
+
+/* Dropdown and Textarea Styling */
+#survey select,
+#survey textarea,
+#survey input[type="text"] {
+    width: 100%; /* Full width within the form */
+    padding: 15px; /* Comfortable padding for inputs */
+    font-size: 1rem; /* Readable font size */
+    border: none; /* Remove default borders */
+    border-radius: 8px; /* Smooth corners */
+    background: white; /* Light background for inputs */
+    color: #213555; /* Dark text for readability */
+    box-sizing: border-box;
+}
+
+/* Adjust Textarea Height */
+#survey textarea {
+    min-height: 200px; /* Increase height for more feedback space */
+}
+
+/* Submit Button */
+#survey button {
+    font-family: 'Montserrat', sans-serif; /* Button text font */
+    font-size: 1.2rem; /* Slightly larger text for emphasis */
+    padding: 15px 30px; /* Add padding for a prominent button */
+    background-color: white; /* Light background */
+    color: #213555; /* Contrasting text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Smooth corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Button Hover Effect */
+#survey button:hover {
+    background-color: #213555; /* Darken background on hover */
+    color: #f5efe7; /* Lighten text on hover */
+}
+
+
+
+/* Footer Section */
+footer {
+    background: #213555; /* Dark theme background */
+    color: white; /* Light text for contrast */
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    position: absolute; /* Position it at the bottom */
+    bottom: 0; /* Attach to the bottom of the viewport */
+    width: 100%; /* Ensures it spans the width of the page */
+    height: auto; /* Adjust height to fit content */
+    z-index: 6;
+}
+
+
+/* Optional: Style links in the footer */
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
